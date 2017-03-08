@@ -43,7 +43,9 @@ Snippet below is from **[NodeDriver.java](https://github.com/FreeFries/Interpret
 
 </pre>
 
-The default methods of multi() & add() actually return lambda expressions - thus the beauty of this is you are actually dealing with little Node blocks that you can effectively "transport" to your final calling method eval() ! Those code blocks are ... see the interface Node.java
+The default methods of multi() & add() actually return lambda expressions - thus the beauty of this is you are actually dealing with little **_code blocks_** that you can effectively "transport" to your final calling method eval() ! 
+
+See **[Node.java](https://github.com/FreeFries/Interpreter/blob/master/src/main/java/xander/whill/Node.java)** which is all you need!
 <pre>
 () -> (n.eval() * o.eval()) // for multiplication where n & o are the nodes passed in 
 
