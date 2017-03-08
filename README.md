@@ -25,7 +25,9 @@ int answer = new NodeAdd(
 
 This **other alternative** by just using a **Functional Interface** (which Node.java is), **default methods** and **Java 8's Lambdas** to make your code more concise, with much **fewer lines (less to test)** and **closer to the expression you are trying to model** which is what I have tried to do, hopefully. It is still and extension of Approach I
 
-So if you look at NodeDriver.java you will see the following lambda expression(s)
+So if you look at **[Node.java](https://github.com/FreeFries/Interpreter/blob/master/src/main/java/xander/whill/Node.java)** you will see the default methods multi(),add() returning lambda expression(s)
+
+Snippet below is from **[NodeDriver.java](https://github.com/FreeFries/Interpreter/blob/master/src/main/java/xander/whill/NodeDriver.java)** which shows how simple lambdas expression writing for developers. 
 
 <pre>
         Node v6 = () -> 6;
