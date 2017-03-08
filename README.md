@@ -1,7 +1,5 @@
 # How do you model an expression ?
-
 Just recently I was posed with the following question above for a challenging and exciting role
-
 <pre>
      +
     / \
@@ -11,28 +9,21 @@ Just recently I was posed with the following question above for a challenging an
 
 (6 * 3) + 1 = 19 
 </pre>
-
 At the end of this exercise the solution proposed to me was to use an interface with a common eval() method where
 
 * NodeValue(s) are 6, 3, & 1
 * Op Nodes were * (multiply) & + (Addition) thus we modelled NodeMulti & NodeAdd and this gave us the traditional DSL expression below as
 
+### Approach I 
 <pre>
 int answer = new NodeAdd(
                              new NodeMulti( new NodeValue(6),new NodeValue(3)),
                              new NodeValue(1)
                              ).eval();
 </pre>
+### Approach II using a SAM Functional Interface with default methods only
 
-The solution above mimics almost one-to-one the following pattern ....
-
-[Wikipedia - Interpreter Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern#Java) 
-
-And, it also has elements of the Composable Decorator Pattern in this post  ....
-
-[Yegor Bugayenko post on Composite Pattern ](http://www.yegor256.com/2015/02/26/composable-decorators.html)
-
-However there is **another alternative** by just using a **Functional Interface** (which Node.java is), **default methods** and **Java 8's Lambdas** to make your code more concise, with much **fewer lines (less to test)** and **closer to the expression you are trying to model** which is what I have tried to do, hopefully.
+This **other alternative** by just using a **Functional Interface** (which Node.java is), **default methods** and **Java 8's Lambdas** to make your code more concise, with much **fewer lines (less to test)** and **closer to the expression you are trying to model** which is what I have tried to do, hopefully. It is still and extension of Approach I
 
 So if you look at NodeDriver.java you will see the following lambda expression(s)
 
@@ -57,6 +48,14 @@ The default methods of multi() & add() actually return lambda expressions - thus
 () -> (a.eval() + b.eval()) // for addition where a & b are the nodes passed in
 </pre>
 
+
+Both solutions are formed on the basis of the following pattern(s) ....
+
+[Wikipedia - Interpreter Pattern](https://en.wikipedia.org/wiki/Interpreter_pattern#Java) 
+
+And, it also has elements of the Composable Decorator Pattern in this post  ....
+
+[Yegor Bugayenko post on Composite Pattern ](http://www.yegor256.com/2015/02/26/composable-decorators.html)
 
 
 
