@@ -1,0 +1,16 @@
+# ignore target directories
+# matches target in any subfolder apparently would have been target/
+# I only want to match target folder from the root
+# this also automatically takes away .class files
+target/
+
+
+
+# ignore all files that have a .log in between and end with a .txt
+logs/*
+!logs/.gitkeep
+
+# ignore all ~ temporary files
+*~
+
+
